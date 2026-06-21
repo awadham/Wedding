@@ -654,6 +654,19 @@
                     return;
                 }
 
+                // --- LIGHTWEIGHT TRACKING CODE ---
+                // This sends the email in the background without slowing down the site
+                fetch('YOUR_WEBHOOK_URL_HERE', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        action: "Reservation Checked", 
+                        email: email, 
+                        time: new Date().toLocaleString() 
+                    })
+                }).catch(e => console.log("Tracking logged silently."));
+                // ---------------------------------
+
                 if (reservations.hasOwnProperty(email)) {
                     const userBookings = reservations[email];
                     
