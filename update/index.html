@@ -671,7 +671,7 @@
                         // --- COST CALCULATION ---
                         let rawCost = 0;
                         if (booking.hotel === "Hilton Colombo") {
-                            rawCost = booking.guests * booking.nights * 90;
+                            rawCost = booking.nights * 90;
                         } else if (booking.hotel === "ITC Ratnadipa") {
                             if (booking.guests === 1) {
                                 rawCost = booking.nights * 194.8655;
